@@ -5,5 +5,5 @@ import hooks from './flex-hooks/**/*.*';
 
 export const register = (): FeatureDefinition => {
   if (!isFeatureEnabled()) return {};
-  return { name: 'sicoob-credimogiana-theme', hooks: typeof hooks === 'undefined' ? [] : hooks };
+  return { name: 'custom-theme', hooks: typeof hooks === 'undefined' ? [] : hooks };
 };

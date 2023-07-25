@@ -201,10 +201,7 @@
         "per_queue": {
           "exampleQueueSid": {
             "require_disposition": true,
-            "dispositions": [
-              "Promotional Sale",
-              "Renewal"
-            ]
+            "dispositions": ["Promotional Sale", "Renewal"]
           }
         }
       },
@@ -225,7 +222,7 @@
       "park_interaction": {
         "enabled": false
       },
-      "sicoob_credimogiana_theme": {
+      "custom_theme": {
         "enabled": false
       }
     }
