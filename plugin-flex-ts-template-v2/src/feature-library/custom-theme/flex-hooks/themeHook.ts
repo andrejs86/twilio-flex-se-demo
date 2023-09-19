@@ -2,7 +2,7 @@ import Flex from '@twilio/flex-ui';
 
 export const cssOverrideHook = (flex: typeof Flex, manager: Flex.Manager) => {
   // set logo
-  flex.MainHeader.defaultProps.logoUrl = 'https://www.unilever.com.br/core-assets/logos/logo-static-dark.svg';
+  flex.MainHeader.defaultProps.logoUrl = 'https://www.deso-se.com.br/img/logo-name.svg';
 
   // const BASE_URL = 'https://sicoob-credimogiana-serverless-4577-dev.twil.io';
 
@@ -45,7 +45,7 @@ export const cssOverrideHook = (flex: typeof Flex, manager: Flex.Manager) => {
       componentThemeOverrides: {
         MainHeader: {
           Container: {
-            backgroundColor: '#1f36c7',
+            backgroundColor: '#9fc4e8',
             borderBottom: 'solid 1px #ccc',
             color: '#fff',
           },
@@ -65,7 +65,7 @@ export const cssOverrideHook = (flex: typeof Flex, manager: Flex.Manager) => {
             lightingColor: 'rgb(1 185 168)',
           },
           Container: {
-            backgroundColor: '#031f82',
+            backgroundColor: '#1c337f',
             color: '#fff',
           },
         },
