@@ -1,72 +1,70 @@
 import Flex from '@twilio/flex-ui';
 
+import CustomTheme from '../assets/customTheme.json';
+
 export const cssOverrideHook = (flex: typeof Flex, manager: Flex.Manager) => {
   // set logo
-  flex.MainHeader.defaultProps.logoUrl = 'https://www.deso-se.com.br/img/logo-name.svg';
+  flex.MainHeader.defaultProps.logoUrl =
+    'https://www.portoseguro.com.br/NovoInstitucional/static_files/pdc/assets/images/logo.svg';
 
-  // const BASE_URL = 'https://sicoob-credimogiana-serverless-4577-dev.twil.io';
+  const BASE_URL = 'https://porto-serverless-1340-dev.twil.io';
 
   // change theme
-  const configuration: Flex.Config = {
+  const configuration = {
     componentProps: {
-      // CRMContainer: {
-      //   _uriCallback: (task: any) => {
-      //     let url = `${BASE_URL}/index.html`;
-      //     try {
-      //       if (task) {
-      //         const params = {
-      //           nome: task.attributes.nome,
-      //           telefone: task.attributes.telefone,
-      //           cidade: task.attributes.cidade,
-      //           endereco: task.attributes.endereco,
-      //           cpf: task.attributes.cpf,
-      //         };
-      //         const queryString = Object.keys(params)
-      //           .map((key) => {
-      //             return `${encodeURIComponent(key)}=${encodeURIComponent(params[key as keyof typeof params])}`;
-      //           })
-      //           .join('&');
-      //         url = `${BASE_URL}/inbound/inbound.html?${queryString}`;
-      //       }
-      //     } catch (err) {
-      //       console.error(err);
-      //     }
-      //     return url;
-      //   },
-      //   get uriCallback() {
-      //     return this._uriCallback;
-      //   },
-      //   set uriCallback(value) {
-      //     this._uriCallback = value;
-      //   },
-      // },
+      CRMContainer: {
+        uriCallback: (task: any) => {
+          let url = `${BASE_URL}/index.html`;
+
+          try {
+            if (task && task.attributes && task.attributes.origem === 'Central de Serviços') {
+              const params = {
+                nome: task.attributes.name as string,
+                tipo: task.attributes.tipo as string,
+                subtipo: task.attributes.subtipo as string,
+                matricula: task.attributes.matricula as string,
+                fila: task.queueName as string,
+                matriculaValidada: task.attributes.matriculaValidada as string,
+              };
+              const queryString = Object.keys(params)
+                .map((key: string) => {
+                  const val: any = (params as any)[key];
+                  return `${encodeURIComponent(key)}=${encodeURIComponent(val)}`;
+                })
+                .join('&');
+              url = `${BASE_URL}/central-de-servicos/inbound.html?${queryString}`;
+            }
+          } catch (err) {
+            console.error(err);
+          }
+
+          return url;
+        },
+      },
     },
     theme: {
+      tokens: CustomTheme,
       componentThemeOverrides: {
-        MainHeader: {
-          Container: {
-            backgroundColor: '#9fc4e8',
-            borderBottom: 'solid 1px #ccc',
-            color: '#fff',
-          },
-          Button: {
-            color: '#fff',
-          },
-        },
         SideNav: {
           Button: {
-            color: '#fff',
-            lightHover: true,
-            lightingColor: 'rgb(1 185 168)',
+            '&hover': {
+              color: 'rgba(17,70,192,1)',
+            },
+            color: '#f7f7f7',
           },
           Icon: {
-            color: '#fff',
-            lightHover: true,
-            lightingColor: 'rgb(1 185 168)',
+            color: '#f7f7f7',
           },
           Container: {
-            backgroundColor: '#1c337f',
-            color: '#fff',
+            background:
+              'linear-gradient(180deg, rgba(17,70,192,1) 0%, rgba(17,70,192,1) 25%, rgba(255,255,255,1) 100%)',
+          },
+        },
+        MainHeader: {
+          Container: {
+            background: '#f7f7f7',
+            borderBottom: 'solid 1px #c7c7c7',
+            color: 'black',
           },
         },
       },

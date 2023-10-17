@@ -20,12 +20,12 @@
         "enabled": true
       },
       "conversation_transfer": {
-        "enabled": false,
+        "enabled": true,
         "cold_transfer": true,
         "multi_participant": true
       },
       "chat_to_video_escalation": {
-        "enabled": false
+        "enabled": true
       },
       "conference": {
         "enabled": true,
@@ -38,7 +38,7 @@
         "display_url_when_no_tasks": "https://www.bing.com"
       },
       "internal_call": {
-        "enabled": false
+        "enabled": true
       },
       "scrollable_activities": {
         "enabled": true
@@ -51,7 +51,7 @@
         "supervisor_alert_toggle": true
       },
       "omni_channel_capacity_management": {
-        "enabled": false,
+        "enabled": true,
         "channel": "chat",
         "default_max_capacity": 2
       },
@@ -116,7 +116,7 @@
         "enabled": true
       },
       "schedule_manager": {
-        "enabled": false
+        "enabled": true
       },
       "multi_call": {
         "enabled": false
@@ -128,7 +128,7 @@
         "enabled": false
       },
       "agent_automation": {
-        "enabled": true,
+        "enabled": false,
         "configuration": [
           {
             "channel": "voice",
@@ -150,11 +150,11 @@
       },
       "supervisor_complete_reservation": {
         "enabled": true,
-        "outcome": "Completed by supervisor"
+        "outcome": "Finalizada pelo supervisor"
       },
       "canned_responses": {
         "enabled": true,
-        "location": "CRM"
+        "location": "MessageInputActions"
       },
       "keyboard_shortcuts": {
         "enabled": false
@@ -188,15 +188,14 @@
         }
       },
       "dispositions": {
-        "enabled": false,
+        "enabled": true,
         "enable_notes": true,
         "require_disposition": true,
         "global_dispositions": [
-          "Resolved",
-          "Not Resolved",
-          "Follow-up Required",
-          "Escalation",
-          "Wrong Department"
+          "Resolvido",
+          "Não Resolvido",
+          "Follow-up",
+          "Escalation"
         ],
         "per_queue": {
           "exampleQueueSid": {
@@ -216,14 +215,14 @@
         "enabled": true
       },
       "localization": {
-        "enabled": false,
+        "enabled": true,
         "show_menu": true
       },
       "park_interaction": {
-        "enabled": false
+        "enabled": true
       },
       "custom_theme": {
-        "enabled": false
+        "enabled": true
       }
     }
   }
