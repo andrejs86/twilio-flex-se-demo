@@ -5,17 +5,50 @@ import CustomTheme from '../assets/customTheme.json';
 export const cssOverrideHook = (flex: typeof Flex, manager: Flex.Manager) => {
   // set logo
   flex.MainHeader.defaultProps.logoUrl =
-    'https://play-lh.googleusercontent.com/NNGmnmwH1MrTSdQT0d4T-_5Ca3vnShX34lPdlZ0tFq739AL8LpcMFuVoCoG42hRpVRs';
+    'https://www.portoseguro.com.br/NovoInstitucional/static_files/pdc/assets/images/logo.svg';
+
+  const BASE_URL = 'https://porto-serverless-1340-dev.twil.io';
 
   // change theme
   const configuration = {
+    componentProps: {
+      CRMContainer: {
+        uriCallback: (task: any) => {
+          let url = `${BASE_URL}/index.html`;
+
+          try {
+            if (task && task.attributes && task.attributes.origem === 'Central de Serviços') {
+              const params = {
+                nome: task.attributes.name as string,
+                tipo: task.attributes.tipo as string,
+                subtipo: task.attributes.subtipo as string,
+                matricula: task.attributes.matricula as string,
+                fila: task.queueName as string,
+                matriculaValidada: task.attributes.matriculaValidada as string,
+              };
+              const queryString = Object.keys(params)
+                .map((key: string) => {
+                  const val: any = (params as any)[key];
+                  return `${encodeURIComponent(key)}=${encodeURIComponent(val)}`;
+                })
+                .join('&');
+              url = `${BASE_URL}/central-de-servicos/inbound.html?${queryString}`;
+            }
+          } catch (err) {
+            console.error(err);
+          }
+
+          return url;
+        },
+      },
+    },
     theme: {
       tokens: CustomTheme,
       componentThemeOverrides: {
         SideNav: {
           Button: {
             '&hover': {
-              color: 'rgba(29,29,213,0.5)',
+              color: 'rgba(17,70,192,1)',
             },
             color: '#f7f7f7',
           },
@@ -24,24 +57,17 @@ export const cssOverrideHook = (flex: typeof Flex, manager: Flex.Manager) => {
           },
           Container: {
             background:
-              'linear-gradient(180deg, rgb(29,29,213) 0%, rgb(29,29,213) 25%, rgba(255,255,255,1) 100%)',
+              'linear-gradient(180deg, rgba(17,70,192,1) 0%, rgba(17,70,192,1) 25%, rgba(255,255,255,1) 100%)',
           },
         },
         MainHeader: {
           Container: {
-            background: 'rgb(29,29,213)',
+            background: '#f7f7f7',
             borderBottom: 'solid 1px #c7c7c7',
-            color: '#fff',
+            color: 'black',
           },
         },
       },
-    },
-    componentProps: {
-      CRMContainer: {
-        uriCallback: (task: any) => task
-          ? `https://custom-flex-extensions-serverless-6196-dev.twil.io/features/custom-theme/inbound/inbound.html?task=${task.attributes.name}`
-          : "https://custom-flex-extensions-serverless-6196-dev.twil.io/features/custom-theme/index.html"
-      }
     },
   };
 

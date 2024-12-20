@@ -69,7 +69,7 @@
         "multi_participant": true
       },
       "chat_to_video_escalation": {
-        "enabled": false
+        "enabled": true
       },
       "conference": {
         "enabled": true,
@@ -84,9 +84,7 @@
         "url_tab_title": "Web Page"
       },
       "internal_call": {
-        "enabled": true,
-        "enable_call_agent": true,
-        "enable_call_queue": true
+        "enabled": false
       },
       "scrollable_activities": {
         "enabled": true
@@ -99,7 +97,7 @@
         "supervisor_alert_toggle": true
       },
       "omni_channel_capacity_management": {
-        "enabled": false,
+        "enabled": true,
         "channel": "chat",
         "default_max_capacity": 2
       },
@@ -147,8 +145,7 @@
         "enabled": true
       },
       "schedule_manager": {
-        "enabled": true,
-        "serverless_domain": "<YOUR_SCHEDULE_MANAGER_DOMAIN>"
+        "enabled": false
       },
       "multi_call": {
         "enabled": false
@@ -160,7 +157,7 @@
         "enabled": false
       },
       "agent_automation": {
-        "enabled": true,
+        "enabled": false,
         "configuration": [
           {
             "channel": "voice",
@@ -190,7 +187,7 @@
       },
       "supervisor_complete_reservation": {
         "enabled": true,
-        "outcome": "Completed by supervisor"
+        "outcome": "Finalizada pelo supervisor"
       },
       "canned_responses": {
         "enabled": true,
@@ -225,18 +222,14 @@
       "dispositions": {
         "enabled": true,
         "enable_notes": true,
-        "global": {
-          "require_disposition": false,
-          "dispositions": [
-            "Resolved",
-            "Not Resolved",
-            "Follow-up Required",
-            "Escalation",
-            "Wrong Department"
-          ],
-          "text_attributes": [],
-          "select_attributes": []
-        },
+        "require_disposition": true,
+        "global_dispositions": [
+          "Resolved",
+          "Not Resolved",
+          "Follow-up Required",
+          "Escalation",
+          "Wrong Department"
+        ],
         "per_queue": {
           "exampleQueueName": {
             "require_disposition": true,
@@ -261,178 +254,11 @@
         "enable_audit_logging": true
       },
       "localization": {
-        "enabled": false,
+        "enabled": true,
         "show_menu": true
       },
       "park_interaction": {
-        "enabled": true,
-        "show_list": false
-      },
-      "teams_view_enhancements": {
-        "enabled": true,
-        "highlight_handle_time": true,
-        "handle_time_warning_threshold": 180,
-        "handle_time_exceeded_threshold": 300,
-        "display_task_queue_name": true,
-        "columns": {
-          "calls": true,
-          "other_tasks": true,
-          "team": false,
-          "department": false,
-          "location": false,
-          "agent_skills": true,
-          "activity_icon": false
-        }
-      },
-      "ring_notification": {
         "enabled": false
-      },
-      "send_audio_rec_file": {
-        "enabled": true
-      },
-      "metrics_data_tiles": {
-        "enabled": false,
-        "queues_view_tiles": {
-          "all_channels_data_tile": true,
-          "all_channels_sla_data_tile": false,
-          "agents_by_activity_bar_chart": true,
-          "enhanced_agent_by_activity_pie_chart": false
-        },
-        "teams_view_tiles": {
-          "task_summary_tile": false,
-          "team_activity_tile": false,
-          "status_idle_color": "limegreen",
-          "status_busy_color": "royalblue"
-        },
-        "channels": {
-          "Voice": {
-            "color": "#ADD8E6",
-            "SLA_data_tile": true,
-            "task_counts_data_tile": true,
-            "teams_task_summary": true
-          },
-          "Chat": {
-            "color": "#87CEFA",
-            "SLA_data_tile": true,
-            "task_counts_data_tile": true,
-            "teams_task_summary": true
-          },
-          "SMS": {
-            "color": "#59cef8",
-            "SLA_data_tile": false,
-            "task_counts_data_tile": false,
-            "teams_task_summary": true
-          },
-          "Video": {
-            "color": "#00CED1",
-            "SLA_data_tile": false,
-            "task_counts_data_tile": false,
-            "teams_task_summary": false
-          }
-        },
-        "agent_activity_configuration": {
-          "activities": {
-            "Available": {
-              "color": "green",
-              "icon": "Accept"
-            },
-            "Outbound": {
-              "color": "darkgreen",
-              "icon": "Call"
-            },
-            "Break": {
-              "color": "goldenrod",
-              "icon": "Hold"
-            },
-            "Lunch": {
-              "color": "darkorange",
-              "icon": "Hamburger"
-            },
-            "Training": {
-              "color": "red",
-              "icon": "Bulb"
-            },
-            "Offline": {
-              "color": "grey",
-              "icon": "Minus"
-            }
-          },
-          "other": {
-            "color": "darkred",
-            "icon": "More"
-          }
-        }
-      },
-      "queues_stats_metrics": {
-        "enabled": false,
-        "assigned_tasks_column": true,
-        "wrapping_tasks_column": true,
-        "agent_activity_stats_column": true
-      },
-      "sip_support": {
-        "enabled": false
-      },
-      "worker_details": {
-        "enabled": true,
-        "edit_team": true,
-        "edit_department": true,
-        "text_attributes": [],
-        "boolean_attributes": []
-      },
-      "worker_canvas_tabs": {
-        "enabled": true
-      },
-      "datadog_log_integration": {
-        "enabled": false,
-        "log_level": "info",
-        "api_key": "",
-        "intake_region": "",
-        "flush_timeout": 5000
-      },
-      "contacts": {
-        "enabled": true,
-        "enable_recents": true,
-        "enable_personal": true,
-        "enable_shared": true,
-        "recent_days_to_keep": 14,
-        "shared_agent_editable": false,
-        "page_size": 10
-      },
-      "inline_media": {
-        "enabled": true
-      },
-      "post_task_survey": {
-        "enabled": true,
-        "voiceSurveyEnabled": false,
-        "whatsappSurveyEnabled": true,
-        "surveyWorkflowSid": "",
-        "whatsappSurveyContentSid": "HXdd00888c1f65844451c75f41407d43a1",
-        "whatsappSurveyMessage": "",
-        "whatsappNumber": "whatsapp:+551140402774",
-        "whatsappInboundStudioFlow": "FW82bd703726e049040f4e1d8bc1fef5be"
-      },
-      "branding": {
-        "enabled": false,
-        "custom_logo_url": "",
-        "use_custom_colors": false,
-        "custom_colors": {
-          "main_header_background": "rgb(6, 3, 58)",
-          "side_nav_background": "rgb(255, 255, 255)",
-          "side_nav_border": "rgb(202, 205, 216)",
-          "side_nav_icon": "rgb(18, 28, 45)",
-          "side_nav_selected_icon": "rgb(2, 99, 224)",
-          "side_nav_hover_background": "rgb(225, 227, 234)"
-        },
-        "component_theme_overrides": {}
-      },
-      "force_conference_region": {
-        "enabled": false,
-        "region": ""
-      },
-      "conditional_recording": {
-        "enabled": false,
-        "exclude_attributes": [],
-        "exclude_queues": []
       }
     }
   }

@@ -55,11 +55,10 @@ export const formatName = (name: string): string => {
 };
 
 export const formatDocsUrl = (name: string): string => {
-  if (name === featureCommon) {
-    return `${docsBaseUrl}/building/template-utilities/configuration#common-configuration`;
-  }
-
-  return `${docsBaseUrl}/feature-library/${name.replaceAll('_', '-')}`;
+  return `https://twilio-professional-services.github.io/flex-project-template/feature-library/${name.replaceAll(
+    '_',
+    '-',
+  )}`;
 };
 
 const updateWorkerSetting = async (feature: string, config: any) => {
