@@ -1,0 +1,243 @@
+:root {
+    --main-color: rgba(29, 29, 213);
+    --alternate-color: rgb(255, 255, 255);
+    --border-color: rgb(179, 179, 179);
+    --input-background-color: rgb(179, 179, 179, 0.1);
+  }
+  
+  * {
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased !important;
+    background-color: var(--alternate-color);
+  }
+  
+  .logo-container {
+    padding: 32px 0px;
+    text-align: center;
+  }
+  
+  .main-container {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin: 10px 32px;
+    padding: 48px 24px;
+    text-align: center;
+  }
+  
+  .form {
+    padding: 48px 0px;
+  }
+  
+  .form-line {
+    padding: 8px 24px;
+    text-align: center;
+  }
+  
+  button {
+    width: 75%;
+    font-weight: 700;
+    color: var(--alternate-color);
+    background: var(--main-color);
+    border-radius: 4px;
+    height: 48px;
+    padding: 0 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 36px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin: 0px 0px 16px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    margin-bottom: 16px;
+    line-height: 30px;
+  }
+  
+  h4 {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.28px;
+    font-weight: 600;
+    color: rgb(64, 64, 64);
+  }
+  
+  .input-container {
+    line-height: 20.8px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: normal;
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  
+  .alternate-text {
+    margin: 0px 8px 0px 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.21px;
+    display: flex;
+    align-items: center;
+    color: var(--alternate-color);
+    margin-right: 8px;
+  }
+  
+  .input-box {
+    background-color: var(--input-background-color);
+    height: 48px;
+    margin: 0px;
+    padding: 8px 12px 0px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: baseline;
+    width: 100%;
+  }
+  
+  .input-content {
+    color: rgb(0, 0, 0);
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    border-top: 13.5px solid rgba(0, 0, 0, 0);
+    display: block;
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0px;
+    width: 180px;
+  }
+  
+  input[type="text"] {
+    color: rgb(31, 31, 31);
+    margin: -1px 0px 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 14px;
+    caret-color: rgb(63, 81, 181);
+    animation: 0s ease 1ms 1 normal none running cdk-text-field-autofill-end;
+    margin-top: -1px;
+    appearance: none;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box
+      border-box;
+    border: 0px none rgb(31, 31, 31);
+    outline: rgb(31, 31, 31) none 0px;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: left;
+  }
+  
+  .input-label-container {
+    top: -22px;
+    padding-top: 29.5px;
+    margin: 0px;
+    padding: 29.5px 0px 0px;
+    box-sizing: content-box;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 20.7969px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .input-label {
+    color: rgba(29, 29, 213);
+    text-shadow: rgba(255, 255, 255, 0.08) 0px 4px 10px;
+    top: 14px;
+    margin-top: 0px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    transform: matrix(0.75, 0, 0, 0.75, 0, -9.5);
+    width: 133.333%;
+    transition: none 0s ease 0s;
+    display: block;
+    position: absolute;
+    left: 0px;
+    pointer-events: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transform-origin: 0px 0px;
+  }
+  
+  .input-underline {
+    height: 2px;
+    position: static;
+    background-color: var(--main-color);
+    margin: 0px;
+    margin-top: -2px;
+    padding: 0px;
+    box-sizing: border-box;
+    bottom: 21.5px;
+    width: 100%;
+    pointer-events: none;
+    transform: matrix(1, 0, 0, 1.0001, 0, 0);
+  }
+  
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 230px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: smaller;
+    position: absolute;
+    z-index: 1;
+    bottom: 130%;
+    left: 50%;
+    margin-left: -115px;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  
+  .valid {
+    border-radius: 50%;
+    background: #5dab5d;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    margin-left: 68px;
+    margin-top: 6px;
+  }
+  
+  .invalid {
+    border-radius: 50%;
+    background: #d74a4a;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    margin-left: 68px;
+    margin-top: 6px;
+  }
+  
