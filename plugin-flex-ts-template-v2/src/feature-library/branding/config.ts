@@ -17,21 +17,48 @@ const {
 } = (getFeatureFlags()?.features?.branding as BrandingConfig) || {};
 
 export const isFeatureEnabled = () => {
-  return enabled;
+  return true;
 };
 
 export const isCustomColorsEnabled = () => {
-  return use_custom_colors;
+  return true;
 };
 
 export const getCustomLogoUrl = () => {
-  return custom_logo_url;
+  return 'https://companion-map-2213.twil.io/companion-logo.png';
 };
 
 export const getCustomColors = () => {
-  return custom_colors;
+  return {
+    main_header_background: '#fff',
+    side_nav_background: '#0282ac',
+    side_nav_border: '#ccc',
+    side_nav_icon: '',
+    side_nav_selected_icon: '',
+    side_nav_hover_background: '',
+  };
 };
 
 export const getComponentThemeOverrides = () => {
-  return component_theme_overrides;
+  return {
+    SideNav: {
+      Container: {
+        color: '#fff',
+        background: "rgb(3,130,172); background: linear-gradient(144deg, rgba(3,130,172,1) 35%, rgba(255,255,255,1) 100%);"
+      },
+      Icon: {
+        color: "#fff",
+      },
+    },
+    MainHeader: {
+      Container: {
+        color: "#000",
+        background: "#fff",
+        borderBottom: "solid 1px #c7c7c7",
+      },
+      Icon: {
+        color: "#fff",
+      },
+    },
+  };
 };

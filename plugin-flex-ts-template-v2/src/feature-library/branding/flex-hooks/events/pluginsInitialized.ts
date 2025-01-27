@@ -6,6 +6,26 @@ import { isCustomColorsEnabled, getCustomColors, getComponentThemeOverrides } fr
 
 export const eventName = FlexEvent.pluginsInitialized;
 export const eventHook = function applyBrandingColors(flex: typeof Flex, manager: Flex.Manager) {
+  manager.updateConfig({
+    componentProps: {
+      CRMContainer: {
+        uriCallback: (task: any) => {
+          let url = 'https://companion-map-2213.twil.io/no-tasks.html';
+
+          try {
+            if (task) {
+              url = 'https://ansilva-twilio.github.io/companion-map-website/';
+            }
+          } catch (err) {
+            console.error(err);
+          }
+
+          return url;
+        },
+      },
+    }
+  });
+  
   let componentThemeOverrides = {} as any;
   let apply = false;
 

@@ -1,5 +1,5 @@
 import * as FlexPlugin from '@twilio/flex-plugin';
 
-import FlexTSTemplatePlugin from './FlexTSTemplatePlugin';
+import CompanionMapPlugin from './CompanionMapPlugin';
 
-FlexPlugin.loadPlugin(FlexTSTemplatePlugin);
+FlexPlugin.loadPlugin(CompanionMapPlugin);
